@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&family=Noto+Kufi+Arabic:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #c9a227;
+    --gold-light: #f0c940;
+    --gold-dark: #8a6c10;
+    --ogx-bg: #0a0a0a;
+    --ogx-bg2: #111111;
+    --ogx-bg3: #1a1a1a;
+    --ogx-card: #141414;
+    --ogx-border: #2a2a2a;
+    --ogx-text: #e8e8e8;
+    --ogx-text-muted: #888;
+    --ogx-shadow: rgba(201,162,39,0.15);
+
+    --background: 0 0% 4%;
+    --foreground: 0 0% 91%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 91%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 91%;
+    --primary: 44 74% 47%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 91%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 91%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 44 74% 47%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-orbitron: 'Orbitron', monospace;
+    --font-rajdhani: 'Rajdhani', sans-serif;
+    --font-arabic: 'Noto Kufi Arabic', sans-serif;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 91%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 91%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 91%;
+    --primary: 44 74% 47%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 91%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 91%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 44 74% 47%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .light-mode {
+    --ogx-bg: #f0ece0;
+    --ogx-bg2: #e8e2d0;
+    --ogx-bg3: #ddd6c0;
+    --ogx-card: #faf7ef;
+    --ogx-border: #c9a227;
+    --ogx-text: #1a1a1a;
+    --ogx-text-muted: #555;
+    --ogx-shadow: rgba(201,162,39,0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    background: var(--ogx-bg);
+    color: var(--ogx-text);
+    font-family: var(--font-rajdhani);
+    transition: background 0.4s, color 0.4s;
+    overflow-x: hidden;
+  }
+}
+
+/* Noise texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ogx-bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+/* Animations */
+@keyframes pulseRing {
+  0%, 100% { opacity: 0.06; transform: scale(1); }
+  50% { opacity: 0.14; transform: scale(1.02); }
+}
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+@keyframes confPop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
