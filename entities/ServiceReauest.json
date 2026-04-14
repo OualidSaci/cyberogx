@@ -1,0 +1,57 @@
+{
+  "name": "ServiceRequest",
+  "type": "object",
+  "properties": {
+    "ticket_id": {
+      "type": "string"
+    },
+    "service_id": {
+      "type": "string"
+    },
+    "service_name_fr": {
+      "type": "string"
+    },
+    "service_name_ar": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "done",
+        "cancelled"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "ticket_id",
+    "service_name_fr",
+    "first_name",
+    "last_name",
+    "phone",
+    "status"
+  ]
+}
